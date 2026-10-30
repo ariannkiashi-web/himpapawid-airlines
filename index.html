@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Himpapawid Airlines</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="ticket.css">
+</head>
+<body>
+
+  <!-- LOGIN -->
+  <section id="loginPage" class="login-page">
+    <div class="login-card">
+      <div class="brand-mark">✈</div>
+      <h1>Himpapawid</h1>
+      <p class="login-subtitle">Your journey begins here.</p>
+
+      <form id="loginForm">
+        <label for="username">Username</label>
+        <input id="username" type="text" placeholder="Enter username" required>
+
+        <label for="password">Password</label>
+        <input id="password" type="password" placeholder="Enter password" required>
+
+        <p id="loginError" class="error-message"></p>
+
+        <div class="login-actions">
+          <button type="submit" class="icon-button check-button" title="Log in">✓</button>
+          <button type="button" id="cancelLogin" class="icon-button cancel-button" title="Clear fields">✕</button>
+        </div>
+      </form>
+      <p class="demo-note">Demo account: himpapawid / ticket123</p>
+    </div>
+  </section>
+
+  <!-- MAIN WEBSITE -->
+  <div id="mainWebsite" class="hidden">
+
+    <header class="site-header">
+      <a href="#" class="logo" data-go="home">
+        <span class="logo-icon">✈</span>
+        <span>HIMPAPAWID</span>
+      </a>
+
+      <button id="menuToggle" class="menu-toggle" aria-label="Toggle navigation">☰</button>
+
+      <nav id="navigation">
+        <a href="#" class="nav-link active" data-page="home">Home</a>
+        <a href="#" class="nav-link" data-page="book">Book a Flight</a>
+        <a href="#" class="nav-link" data-page="manage">Manage Booking</a>
+        <a href="#" class="nav-link" data-page="account">My Account</a>
+        <button id="logoutButton" class="logout-button">Log Out</button>
+      </nav>
+    </header>
+
+    <main>
+
+      <!-- HOME PAGE -->
+      <section id="home" class="page active-page">
+        <div class="hero">
+          <div class="hero-content">
+            <p class="eyebrow">WELCOME ABOARD</p>
+            <h1>HIMPAPAWID, LIGTAS NA PAGLALAKBAY ANG HATID</h1>
+            <p>Discover beautiful destinations and make every journey and holidays memorable with Himpapawid.</p>
+            <button class="primary-button" data-go="book">Book Your Flight</button>
+          </div>
+          <div class="hero-decoration">✈</div>
+        </div>
+
+        <section class="destination-section">
+          <div class="section-heading">
+            <p class="eyebrow">EXPLORE THE PHILIPPINES</p>
+            <h2>Where will you go next?</h2>
+            <p>Discover places worth visiting with Himpapawid Airlines.</p>
+          </div>
+
+          <div class="destination-grid">
+            <article class="destination-card">
+              <img
+                src="https://commons.wikimedia.org/wiki/Special:FilePath/Batanes_Protected_Landscapes_and_Seascapes_Hills_of_Basco.jpg"
+                alt="Rolling hills in Batanes">
+              <div class="destination-info">
+                <h3>Batanes</h3>
+                <p>Experience peaceful landscapes and beautiful coastlines.</p>
+                <button class="text-button" data-book-destination="BSO">Explore destination →</button>
+              </div>
+            </article>
+
+            <article class="destination-card">
+              <img
+                src="https://commons.wikimedia.org/wiki/Special:FilePath/Big_Lagoon_at_El_Nido%2C_Palawan%2C_Philippines.jpg"
+                alt="Big Lagoon in El Nido, Palawan">
+              <div class="destination-info">
+                <h3>Palawan</h3>
+                <p>Enjoy clear waters, lagoons, and breathtaking islands.</p>
+                <button class="text-button" data-book-destination="PPS">Explore destination →</button>
+              </div>
+            </article>
+
+            <article class="destination-card">
+              <img
+                src="https://commons.wikimedia.org/wiki/Special:FilePath/Bohol%27s_Chocolate_Hills.jpg"
+                alt="Chocolate Hills in Bohol">
+              <div class="destination-info">
+                <h3>Bohol</h3>
+                <p>Discover the famous Chocolate Hills and island adventures.</p>
+                <button class="text-button" data-book-destination="TAG">Explore destination →</button>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="home-cta">
+          <h2>Ready for your next adventure?</h2>
+          <p>Make your travel plans with Himpapawid Airlines.</p>
+          <button class="primary-button" data-go="book">Find a Flight</button>
+        </section>
+      </section>
+
+      <!-- BOOK A FLIGHT PAGE -->
+      <section id="book" class="page">
+        <div class="page-heading">
+          <p class="eyebrow">PLAN YOUR TRIP</p>
+          <h1>Book a Flight</h1>
+          <p>Choose your destination and find a sample flight.</p>
+        </div>
+
+        <div class="booking-panel">
+          <form id="flightSearchForm">
+
+            <div class="trip-options">
+              <label><input type="radio" name="tripType" value="oneway" checked> One Way</label>
+              <label><input type="radio" name="tripType" value="roundtrip"> Round Trip</label>
+            </div>
+
+            <div class="booking-grid">
+              <div class="form-group">
+                <label for="originCountry">From: Country</label>
+                <select id="originCountry" required>
+                  <option value="">Select country</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="origin">Departure Airport</label>
+                <select id="origin" required disabled>
+                  <option value="">Select country first</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="destinationCountry">To: Country</label>
+                <select id="destinationCountry" required>
+                  <option value="">Select country</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="destination">Arrival Airport</label>
+                <select id="destination" required disabled>
+                  <option value="">Select country first</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="departureDate">Departure Date</label>
+                <input type="date" id="departureDate" required>
+              </div>
+
+              <div class="form-group" id="returnDateGroup" hidden>
+                <label for="returnDate">Return Date</label>
+                <input type="date" id="returnDate">
+              </div>
+            </div>
+
+            <div class="passenger-section">
+              <h3>Passengers</h3>
+              <div class="counter-grid">
+                <div class="counter-item">
+                  <span>Adults <small>(12+ years)</small></span>
+                  <div class="counter">
+                    <button type="button" data-counter="adults" data-change="-1">−</button>
+                    <strong id="adultsCount">1</strong>
+                    <button type="button" data-counter="adults" data-change="1">+</button>
+                  </div>
+                </div>
+
+                <div class="counter-item">
+                  <span>Children <small>(2–11 years)</small></span>
+                  <div class="counter">
+                    <button type="button" data-counter="children" data-change="-1">−</button>
+                    <strong id="childrenCount">0</strong>
+                    <button type="button" data-counter="children" data-change="1">+</button>
+                  </div>
+                </div>
+
+                <div class="counter-item">
+                  <span>Infants <small>(Below 2 years)</small></span>
+                  <div class="counter">
+                    <button type="button" data-counter="infants" data-change="-1">−</button>
+                    <strong id="infantsCount">0</strong>
+                    <button type="button" data-counter="infants" data-change="1">+</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <p id="bookingMessage" class="message"></p>
+            <button type="submit" class="primary-button full-button">Search Flights</button>
+          </form>
+        </div>
+
+        <section id="flightResults" class="results-section hidden">
+          <h2>Available Sample Flights</h2>
+          <div id="flightList"></div>
+        </section>
+
+        <section id="passengerDetails" class="booking-panel hidden">
+          <h2>Passenger Information</h2>
+          <p class="muted">Enter the primary passenger's details.</p>
+
+          <div class="form-group">
+            <label for="passengerName">Full Name</label>
+            <input id="passengerName" type="text" placeholder="Enter full name">
+          </div>
+
+          <div class="form-group">
+            <label for="passengerEmail">Email Address</label>
+            <input id="passengerEmail" type="email" placeholder="Enter email">
+          </div>
+
+          <div class="form-group">
+            <label for="passengerPhone">Contact Number</label>
+            <input id="passengerPhone" type="tel" placeholder="Enter contact number">
+          </div>
+
+          <h3>Select Your Seat</h3>
+          <p class="muted">Choose one seat for this sample booking.</p>
+          <div id="seatMap" class="seat-map"></div>
+          <p id="seatMessage" class="message"></p>
+
+          <div id="priceSummary" class="price-summary"></div>
+          <p id="passengerMessage" class="message"></p>
+          <button type="button" id="confirmBookingButton" class="primary-button full-button">Confirm Booking</button>
+        </section>
+
+        <section id="bookingConfirmation" class="booking-panel confirmation hidden">
+          <div class="success-icon">✓</div>
+          <h2>Booking Confirmed!</h2>
+          <p>Your sample reservation has been saved.</p>
+          <div id="confirmationDetails"></div>
+          <button type="button" id="newBookingButton" class="primary-button">Make Another Booking</button>
+        </section>
+      </section>
+
+      <!-- MANAGE BOOKING PAGE -->
+      <section id="manage" class="page">
+        <div class="page-heading">
+          <p class="eyebrow">YOUR TRAVEL DETAILS</p>
+          <h1>Manage Booking</h1>
+          <p>Look up your reservation using your booking reference.</p>
+        </div>
+
+        <div class="booking-panel manage-panel">
+          <div class="form-group">
+            <label for="bookingReference">Booking Reference</label>
+            <input id="bookingReference" type="text" placeholder="Enter your reference number">
+          </div>
+          <button type="button" id="manageBookingButton" class="primary-button full-button">Find Booking</button>
+          <p id="manageMessage" class="message"></p>
+          <div id="managedBooking"></div>
+        </div>
+      </section>
+
+      <!-- MY ACCOUNT PAGE -->
+      <section id="account" class="page">
+        <div class="page-heading">
+          <p class="eyebrow">PERSONAL DETAILS</p>
+          <h1>My Account</h1>
+          <p>View and update your account information.</p>
+        </div>
+
+        <div class="account-card">
+          <div class="account-avatar">✿</div>
+          <div>
+            <h2 id="accountDisplayName">Himpapawid Passenger</h2>
+            <p class="muted">Passenger Account</p>
+          </div>
+          <button type="button" id="openProfileModal" class="secondary-button">Edit Profile</button>
+        </div>
+
+        <div class="profile-display">
+          <h3>Personal Information</h3>
+          <div id="profileDisplay" class="profile-details">
+            <p>No profile information added yet.</p>
+          </div>
+        </div>
+
+        <div class="profile-display">
+          <h3>Reservation History</h3>
+          <div id="reservationHistory">
+            <p class="muted">No reservations yet.</p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-brand">✈ HIMPAPAWID AIRLINES</div>
+      <p>HIMPAPAWID, LIGTAS NA PAGLALAKBAY ANG HATID</p>
+      <p>© 2026 Himpapawid Airlines.</p>
+      <div class="image-credits">
+        Destination photos:
+        <a href="https://commons.wikimedia.org/wiki/File:Batanes_Protected_Landscapes_and_Seascapes_Hills_of_Basco.jpg" target="_blank" rel="noopener">Batanes</a> ·
+        <a href="https://commons.wikimedia.org/wiki/File:Big_Lagoon_at_El_Nido,_Palawan,_Philippines.jpg" target="_blank" rel="noopener">Palawan</a> ·
+        <a href="https://commons.wikimedia.org/wiki/File:Bohol%27s_Chocolate_Hills.jpg" target="_blank" rel="noopener">Bohol</a>
+      </div>
+    </footer>
+  </div>
+
+  <!-- PROFILE MODAL -->
+  <div id="profileModal" class="modal hidden">
+    <div class="modal-content">
+      <button type="button" id="closeProfileModal" class="modal-close" aria-label="Close">×</button>
+      <p class="eyebrow">ACCOUNT SETTINGS</p>
+      <h2>Edit Profile</h2>
+
+      <form id="profileForm">
+        <div class="form-group">
+          <label for="profileName">Full Name</label>
+          <input id="profileName" type="text" required>
+        </div>
+
+        <div class="form-group">
+          <label for="profileBirthday">Date of Birth</label>
+          <input id="profileBirthday" type="date">
+        </div>
+
+        <div class="form-group">
+          <label for="profileEmail">Email Address</label>
+          <input id="profileEmail" type="email">
+        </div>
+
+        <div class="form-group">
+          <label for="profilePhone">Contact Number</label>
+          <input id="profilePhone" type="tel">
+        </div>
+
+        <div class="form-group">
+          <label for="profileAddress">Address</label>
+          <textarea id="profileAddress" rows="3"></textarea>
+        </div>
+
+        <p id="profileMessage" class="message"></p>
+        <button type="submit" class="primary-button full-button">Save Profile</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="reservation.js"></script>
+</body>
+</html>
